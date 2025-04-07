@@ -1,28 +1,6 @@
 <!DOCTYPE html>
-<html lang="nl">
 <head>
-  <meta charset="UTF-8">
   <title>Yogasessie Formulier</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-    }
-
-    .resultaat {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #f3f3f3;
-      border-radius: 8px;
-    }
-  </style>
 </head>
 <body>
 
