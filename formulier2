@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Yogasessie Formulier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .resultaat {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Yogasessie Inschrijfformulier</h1>
+
+  <form id="yogaForm">
+    <label>Voornaam:
+      <input type="text" name="voornaam" required>
+    </label>
+
+    <label>Achternaam:
+      <input type="text" name="achternaam" required>
+    </label>
+
+    <label>Heb je vorige Yogasessies gevolgd?</label>
+    <label><input type="radio" name="status" value="Ja" required> Ja</label>
+    <label><input type="radio" name="status" value="Nee"> Nee</label>
+
+    <label>Zo ja, hoeveel?
+      <input type="number" name="sessies" min="0">
+    </label>
+
+    <label>Wat is je energieniveau (1-5)?
+      <select name="energie" required>
+        <option value="">-- Kies niveau --</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label>
+
+    <label>Doelen met yoga:
+      <textarea name="doelen" rows="3"></textarea>
+    </label>
+
+    <label>Focus vandaag:
+      <textarea name="focus" rows="3"></textarea>
+    </label>
+
+    <label>Telefoonnummer:
+      <input type="text" name="telefoonnummer">
+    </label>
+
+    <button type="submit">Verzend formulier</button>
+  </form>
+
+  <div class="resultaat" id="resultaat" style="display: none;"></div>
+
+  <script>
+    const form = document.getElementById('yogaForm');
+    const result = document.getElementById('resultaat');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // voorkom refresh
+
+      const data = new FormData(form);
+      let output = "<h2>Ingevulde gegevens:</h2><ul>";
+
+      for (let [key, value] of data.entries()) {
+        output += `<li><strong>${key}:</strong> ${value}</li>`;
+      }
+
+      output += "</ul>";
+      result.innerHTML = output;
+      result.style.display = "block";
+
+      form.reset(); // optioneel: formulier leegmaken na verzenden
+    });
+  </script>
+
+</body>
+</html>
