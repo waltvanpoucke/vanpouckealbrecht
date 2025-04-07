@@ -1,0 +1,14 @@
+h1 {
+	font-style: italic;
+	color: silver;
+}
+p {
+	font-style: oblique;
+	color: silver;
+}
+
+body {
+    background-color: teal;
+    font-family: Verdana, sans-serif;
+    margin: 10px;
+}

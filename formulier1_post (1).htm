@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Yogasessie Sportclub</title>
+	</head>
+	
+	<body>
+		
+		<form action="toon_waarden_post.php" method="post" >
+			<link rel="stylesheet" type="text/css" href="style.css">
+
+        	<p>Voornaam : <input type="text" name="voornaam" /></p>
+        	<!-- je vindt na submit de voornaam terug in $_POST['voornaam'] -->
+        	
+			<p>Achternaam : <input type="text" name="achternaam" /></p>
+			<p>Heb je vorige Yogasessies gevolgd? <p>
+			<p><input type="radio" name="status" value="statJa" /> Ja </p>
+			<p><input type="radio" name="status" value="statNee" /> Nee </p>
+			<p>Zo ja, hoeveel? <p>
+			
+			<p><textarea name="commentaar" rows="1" cols="40" ></textarea>
+			<br>
+			
+			<label for="Energieniveau">Wat is je huidige energieniveau op een schaal van 1 tot 5?</label>
+			<select name="Energieniveau" id="Energieniveau">
+				<option value="">--- Energieniveau ---</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			
+			<p>Heb je specifieke doelen die je hoopt te bereiken met yoga (bijv. flexibiliteit, ontspanning, kracht)? : <p>
+			
+			<p><textarea name="commentaar" rows="5" cols="40" ></textarea>
+			
+			<p>Is er iets specifieks waar je vandaag meer focus op wilt leggen in de sessie? : <p>
+			
+			<p><textarea name="commentaar" rows="5" cols="40" ></textarea>
+			
+			
+			<p>Geef hieronder je telefoonnummer in : <p>
+			
+			<p><textarea name="commentaar" rows="1" cols="40" ></textarea>
+
+			<p>Einde : <input type="submit" name="verzend" value="Verzend formulier" /></p>
+        
+        </form>
+		
+				
+		
+	
+	</body>	
+	
+</html>
