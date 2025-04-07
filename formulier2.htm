@@ -1,51 +1,107 @@
 <!DOCTYPE html>
+<html lang="nl">
 <head>
-  <title>Yogasessie Formulier</title>
+  <meta charset="UTF-8">
+  <title>Yogasessie Inschrijfformulier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .resultaat {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-  
+
   <h1>Yogasessie Inschrijfformulier</h1>
 
   <form id="yogaForm">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <label>Voornaam:
-      <input type="text" name="voornaam" required>
-    </label>
+    <label for="voornaam">Voornaam:</label>
+    <input type="text" name="voornaam" id="voornaam" required>
 
-    <label>Achternaam:
-      <input type="text" name="achternaam" required>
-    </label>
+    <label for="achternaam">Achternaam:</label>
+    <input type="text" name="achternaam" id="achternaam" required>
 
     <label>Heb je vorige Yogasessies gevolgd?</label>
-    <label><input type="radio" name="status" value="Ja" required> Ja</label>
-    <label><input type="radio" name="status" value="Nee"> Nee</label>
+    <div class="radio-group">
+      <label><input type="radio" name="status" value="Ja" required> Ja</label>
+      <label><input type="radio" name="status" value="Nee"> Nee</label>
+    </div>
 
-    <label>Zo ja, hoeveel?
-      <input type="number" name="sessies" min="0">
-    </label>
+    <label for="sessies">Zo ja, hoeveel?</label>
+    <input type="number" name="sessies" id="sessies" min="0">
 
-    <label>Wat is je energieniveau (1-5)?
-      <select name="energie" required>
-        <option value="">-- Kies niveau --</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </label>
+    <label for="energie">Wat is je energieniveau (1-5)?</label>
+    <select name="energie" id="energie" required>
+      <option value="">-- Kies niveau --</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
 
-    <label>Doelen met yoga:
-      <textarea name="doelen" rows="3"></textarea>
-    </label>
+    <label for="doelen">Doelen met yoga:</label>
+    <textarea name="doelen" id="doelen" rows="3"></textarea>
 
-    <label>Focus vandaag:
-      <textarea name="focus" rows="3"></textarea>
-    </label>
+    <label for="focus">Focus vandaag:</label>
+    <textarea name="focus" id="focus" rows="3"></textarea>
 
-    <label>Telefoonnummer:
-      <input type="text" name="telefoonnummer">
-    </label>
+    <label for="telefoonnummer">Telefoonnummer:</label>
+    <input type="text" name="telefoonnummer" id="telefoonnummer">
 
     <button type="submit">Verzend formulier</button>
   </form>
@@ -57,7 +113,7 @@
     const result = document.getElementById('resultaat');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // voorkom refresh
+      e.preventDefault();
 
       const data = new FormData(form);
       let output = "<h2>Ingevulde gegevens:</h2><ul>";
@@ -70,7 +126,7 @@
       result.innerHTML = output;
       result.style.display = "block";
 
-      form.reset(); // optioneel: formulier leegmaken na verzenden
+      form.reset();
     });
   </script>
 
