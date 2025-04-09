@@ -1,47 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 
-	<head>
-		<title>Yogasessie Sportclub</title>
-	</head>
-	
-	<body>
-		
-		<form action="toon_waarden_post.php" method="post">
-    			<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Yogasessie Inschrijfformulier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
 
-   			<p>Voornaam : <input type="text" name="voornaam" /></p>
-    			<p>Achternaam : <input type="text" name="achternaam" /></p>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-    			<p>Heb je vorige Yogasessies gevolgd?</p>
-    			<p><input type="radio" name="status" value="statJa" /> Ja </p>
-    			<p><input type="radio" name="status" value="statNee" /> Nee </p>
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
 
-    			<p>Zo ja, hoeveel?</p>
-    			<p><textarea name="aantalSessies" rows="1" cols="40"></textarea></p>
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-    			<label for="Energieniveau">Wat is je huidige energieniveau op een schaal van 1 tot 5?</label>
-			<link rel="stylesheet" type="text/css" href="style.css">
-    			<select name="energieniveau" id="Energieniveau">
-        			<option value="">--- Energieniveau ---</option>
-        			<option value="1">1</option>
-        			<option value="2">2</option>
-        			<option value="3">3</option>
-        			<option value="4">4</option>
-        			<option value="5">5</option>
-			</select>
-			
-			<p>Wat zijn je doelen met yoga?</p>
-			<p><textarea name="doelen" rows="5" cols="40"></textarea></p>
-			
-			<p>Waar wil je vandaag op focussen?</p>
-			<p><textarea name="focus" rows="5" cols="40"></textarea></p>
-			
-			<p>Telefoonnummer:</p>
-			<p><textarea name="telefoonnummer" rows="1" cols="40"></textarea></p>
-			
-			<p><input type="submit" name="verzend" value="Verzend formulier" /></p
-		</form>
-	</body>	
-	
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .resultaat {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Inschrijfformulier Yogasessie</h1>
+
+  <form action="toon_waarden_post.php" method="post">
+
+    <label for="voornaam">Voornaam</label>
+    <input type="text" id="voornaam" name="voornaam" />
+
+    <label for="achternaam">Achternaam</label>
+    <input type="text" id="achternaam" name="achternaam" />
+
+    <label>Heb je vorige Yogasessies gevolgd?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="status" value="statJa" /> Ja</label>
+      <label><input type="radio" name="status" value="statNee" /> Nee</label>
+    </div>
+
+    <label for="aantalSessies">Zo ja, hoeveel?</label>
+    <textarea name="aantalSessies" id="aantalSessies" rows="1"></textarea>
+
+    <label for="energieniveau">Wat is je huidige energieniveau op een schaal van 1 tot 5?</label>
+    <select name="energieniveau" id="energieniveau">
+      <option value="">--- Energieniveau ---</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="doelen">Wat zijn je doelen met yoga?</label>
+    <textarea name="doelen" id="doelen" rows="5"></textarea>
+
+    <label for="focus">Waar wil je vandaag op focussen?</label>
+    <textarea name="focus" id="focus" rows="5"></textarea>
+
+    <label for="telefoonnummer">Telefoonnummer</label>
+    <input type="text" name="telefoonnummer" id="telefoonnummer" />
+
+    <button type="submit" name="verzend">Verzend formulier</button>
+  </form>
+
+</body>
+
 </html>
